@@ -1,0 +1,92 @@
+/*
+* SnowDen Left-Header Card works well up to min-width of 304px. After This it is recommended not to use it. 
+* It is reponsive in design but it is preferable to use in desktop for width longer than 1118px.
+*/
+
+:root {
+    /* content variables */
+    --t-card-title: 'Lorem Ipsum';
+    /* color variables */
+    --c-card-body-bg-color: rgb(48, 44, 44);
+    --c-card-body-fg-color: rgb(24, 124, 238);
+    --c-card-title-bg-color: rgb(17, 121, 240);
+    --c-card-title-fg-color: rgb(42, 43, 44);
+    --c-card-shadow: #343535;
+    /* size and position variables */
+    --s-d-card-body-width: 800px;
+    --s-m-card-body-width: 100%;
+    --s-m-card-body-height: auto;
+    --s-card-title-width: 20%;
+    --s-card-border-width: 1px;
+    --s-card-padding-size: 1.2rem;
+    --s-card-margin-size: 2rem;
+    /* font variables */
+    --f-card-body-font-size: .8rem;
+    --f-card-title-font-size: 1.2rem;
+    --f-card-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Box Shadow */
+    ---f-card-shadow: 0px 0px 12px 1px var(--c-card-shadow);
+}
+
+*,
+*::before {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+.snowden-lh-card {
+    /* Position and size css */
+    position: relative;
+    margin: var(--s-card-margin-size);
+    width: var(--s-d-card-body-width);
+    padding: var(--s-card-padding-size);
+    /* alignment CSS */
+    display: flex;
+    justify-content: left;
+    align-items: stretch;
+    /* Font CSS */
+    background-color: var(--c-card-body-bg-color);
+    color: var(--c-card-body-fg-color);
+    font-size: var(--f-card-body-font-size);
+    /* Border CSS */
+    border: var(--s-card-border-width) solid var(--c-card-title-bg-color);
+    /* Box Shadow CSS */
+    box-shadow: var(---f-card-shadow);
+}
+
+.snowden-lh-card::before {
+    content: var(--t-card-title);
+    /* position and size CSS */
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--s-card-title-width);
+    height: 100%;
+    left: calc(-1 * var(--s-card-title-width));
+    top: 0px;
+    padding: var(--s-card-padding-size);
+    z-index: 1;
+    /* Font CSS */
+    background-color: var(--c-card-title-bg-color);
+    font-size: var(--f-card-title-font-size);
+    font-weight: bold;
+    color: var(--c-card-title-fg-color);
+    font-family: var(--f-card-font-family);
+    /* Box Shadow CSS */
+    box-shadow: var(---f-card-shadow);
+}
+
+@media only screen and (max-width: 1118px) {
+    .snowden-lh-card {
+        width: var(--s-m-card-body-width);
+        height: var(--s-m-card-body-height);
+        padding-top: calc(var(--s-card-title-width));
+    }
+    .snowden-lh-card::before {
+        left: 0px;
+        width: var(--s-m-card-body-width);
+        height: var(--s-card-title-width);
+    }
+}
